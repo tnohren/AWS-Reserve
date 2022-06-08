@@ -1,9 +1,12 @@
 @endpoint = https://g3qarvrb15.execute-api.eu-west-1.amazonaws.com/prod
 
-GET {{endpoint}}/hello/
+GET {{endpoint}}/spaces/
 ###
 
 GET {{endpoint}}/spaces?spaceId=83bb1c5f-115f-4525-9a05-92d3e14e98a1
+###
+
+GET {{endpoint}}/spaces?location=London
 ###
 
 POST {{endpoint}}/spaces/
@@ -12,5 +15,13 @@ Content-Type: application/json
 {
     "location": "London",
     "name": "Best location"
+}
+###
+
+PUT {{endpoint}}/spaces?spaceId=83bb1c5f-115f-4525-9a05-92d3e14e98a1
+Content-Type: application/json
+
+{
+    "location": "Berlin"
 }
 ###
