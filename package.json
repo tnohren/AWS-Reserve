@@ -1,0 +1,35 @@
+{
+  "name": "aws-reserve",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tnohren/AWS-Reserve.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tnohren/AWS-Reserve/issues"
+  },
+  "homepage": "https://github.com/tnohren/AWS-Reserve#readme",
+  "devDependencies": {
+    "@types/node": "^15.0.1",
+    "aws-cdk": "^2.25.0",
+    "aws-cdk-lib": "^2.25.0",
+    "constructs": "^10.1.22",
+    "esbuild": "^0.14.42",
+    "ts-node": "^10.8.0",
+    "typescript": "^4.7.2"
+  },
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.98",
+    "@types/uuid": "^8.3.4",
+    "aws-sdk": "^2.1145.0",
+    "uuid": "^8.3.2"
+  }
+}
