@@ -17,9 +17,11 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
 
     try {
         if (event.queryStringParameters) {
+            // If primary key used, query on primary key
             if (PRIMARY_KEY! in event.queryStringParameters) {
                 result.body = await primaryQuery(event.queryStringParameters);
             }
+            // If secondary key used, query on secondary key
             else {
                 result.body = await secondaryQuery(event.queryStringParameters);
             }

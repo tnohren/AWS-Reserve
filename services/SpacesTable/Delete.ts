@@ -15,21 +15,27 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
         body: 'Hello from DynamoDB'
     }
 
-    // Get Primary Key Value
-    const spaceId = event.queryStringParameters?.[PRIMARY_KEY!]; // ?. only get if object exists
+    try {
+        // Get Primary Key Value
+        const spaceId = event.queryStringParameters?.[PRIMARY_KEY!]; // ?. only get if object exists
 
-    // Build and send delete request
-    if (spaceId) {
-        const deleteResult = await dbClient.delete({
-            TableName: TABLE_NAME!,
-            Key: {
-                [PRIMARY_KEY!]: spaceId
-            }
-        }).promise();
+        // Build and send delete request
+        if (spaceId) {
+            const deleteResult = await dbClient.delete({
+                TableName: TABLE_NAME!,
+                Key: {
+                    [PRIMARY_KEY!]: spaceId
+                }
+            }).promise();
 
-        result.body = JSON.stringify(deleteResult);
+            result.body = JSON.stringify(deleteResult);
+        }
     }
-
+    catch (error) {
+        result.statusCode = 403;
+        result.body = String(error);
+    }
+    
     return result;
 }
 
